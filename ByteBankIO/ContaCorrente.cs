@@ -23,7 +23,10 @@ namespace ByteBankIO
         {
             if (valor <= 0)
             {
-                throw new ArgumentException("Valor de deposito deve ser maior que zero.", nameof(valor));
+                throw new ArgumentException(
+                    "Valor de deposito deve ser maior que zero.",
+                    nameof(valor)
+                );
             }
 
             Saldo += valor;
@@ -33,7 +36,10 @@ namespace ByteBankIO
         {
             if (valor <= 0)
             {
-                throw new ArgumentException("Valor de saque deve ser maior que zero.", nameof(valor));
+                throw new ArgumentException(
+                    "Valor de saque deve ser maior que zero.",
+                    nameof(valor)
+                );
             }
 
             if (valor > Saldo)
