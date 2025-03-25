@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Text;
 
@@ -24,10 +25,27 @@ namespace Trabalhando_com_arquivos
         {
             var caminhoNovoArquivo = "contasExportadas.csv";
 
-            using(var fluxoDeArquivo = new FileStream(caminhoNovoArquivo, FileMode.Create))
-            using(var escritor = new StreamWriter(fluxoDeArquivo))
+            using (var fluxoDeArquivo = new FileStream(caminhoNovoArquivo, FileMode.Create))
+            using (var escritor = new StreamWriter(fluxoDeArquivo))
             {
                 escritor.Write("456,7895,4785.40,Arruda");
+            }
+        }
+
+        static void TestaEscrita()
+        {
+            var caminhoNovoArquivo = "teste.txt";
+
+            using (var fluxoDeArquivo = new FileStream(caminhoNovoArquivo, FileMode.Create))
+            using (var escritor = new StreamWriter(fluxoDeArquivo))
+            {
+                for (int i = 0; i < 100000; i++)
+                {
+                escritor.WriteLine($"Linha {i}");
+                escritor.Flush(); //Despeja o buffer para o Stream
+                Console.WriteLine($"Linha {i} escrita no arquivo. Tecle enter");
+                Console.ReadLine();
+                }
             }
         }
     }

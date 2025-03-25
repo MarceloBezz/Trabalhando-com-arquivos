@@ -9,7 +9,9 @@ namespace Trabalhando_com_arquivos
     {
         static void Main(string[] args)
         {
-            CriarArquivoComWriter();
+            EscritaBinaria();
+            LeituraBinaria();
+            Console.WriteLine("Aplicação finalizada!");
         }
     }
 }
